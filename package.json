@@ -1,0 +1,21 @@
+{
+  "name": "carlyjohnson",
+  "version": "1.0.0",
+  "description": "A practical small business appointment scheduler that local entrepreneurs can use to manage client bookings.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarlyJovon/small_business_appointment_scheduler_v1.git"
+  },
+  "keywords": [],
+  "author": "Carly Johnson",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/CarlyJovon/small_business_appointment_scheduler_v1/issues"
+  },
+  "homepage": "https://github.com/CarlyJovon/small_business_appointment_scheduler_v1#readme"
+}
