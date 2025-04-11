@@ -7,34 +7,35 @@
         <!-- TailwindCSS CDN -->
         <script src="https://cdn.tailwindcss.com"></script>
 
-        <!-- Alpine.js CDN -->
-        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.10.0/dist/cdn.min.js"></script>
-
         <!-- Custom styles -->
         <script>
-            tailwind.config = {
-                theme: {
-                    extend: {
-                        colors: {
-                            primary: {
-                                50: '#f0f9ff',
-                                100: '#e0f2fe',
-                                200: '#bae6fd',
-                                300: '#7dd3fc',
-                                400: '#38bdf8',
-                                500: '#0ea5e9',
-                                600: '#0284c7',
-                                700: '#0369a1',
-                                800: '#075985',
-                                900: '#0c4a6e',
-                            },
-                        }
-                    }
-                }
-            }
-        </script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+            },
+          },
+        },
+      },
+    };
+  </script>
+
+          <!-- Alpine.js CDN -->
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.10.0/dist/cdn.min.js"></script>
+
          <!-- Link to Tailwind CSS file -->
-      <link href="/frontend/styles.css" rel="stylesheet"> <!-- Make sure the path matches your file location -->
+      <link href="./styles.css" rel="stylesheet"> <!-- Make sure the path matches your file location -->
     </head>
     <body class="font-sans text-gray-800 bg-gray-50">
         <!-- Navigation bar -->
@@ -90,6 +91,7 @@
                     </div>
                 </div>
             </div>
+        </nav>
 
          <!-- Hero section -->
         <header class="bg-white">
@@ -205,7 +207,8 @@
             </div>
         </section>
 
-               <!-- How it works section -->
+
+    <!-- How it works section -->
     <section id="how-it-works" class="py-12 bg-white md:py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
@@ -256,5 +259,3 @@
             </div>
         </div>
     </section>
-
-            
