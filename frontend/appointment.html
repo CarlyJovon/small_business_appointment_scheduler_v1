@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-50 font-sans">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Appointment - FlexSched</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="min-h-screen" x-data="bookingForm()">
+
+  <!-- Navigation -->
+  <nav class="bg-white shadow-sm" x-data="{ mobileMenuOpen: false }">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex">
+          <a href="index.html" class="flex items-center text-blue-600 font-bold text-xl">FlexSched</a>
+          <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+            <a href="index.html" class="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium">Home</a>
+            <a href="dashboard.html" class="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium">Dashboard</a>
+            <a href="services.html" class="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium">Services</a>
+            <a href="#" class="text-blue-600 border-b-2 border-blue-600 px-3 py-2 text-sm font-medium">Book</a>
+          </div>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="sm:hidden flex items-center">
+          <button @click="mobileMenuOpen = !mobileMenuOpen" class="p-2 text-gray-400 hover:text-gray-500">
+            <svg x-show="!mobileMenuOpen" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg x-show="mobileMenuOpen" x-cloak class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div x-show="mobileMenuOpen" x-cloak class="sm:hidden px-4 pt-2 pb-3 space-y-1">
+      <a href="index.html" class="block text-gray-700 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium">Home</a>
+      <a href="dashboard.html" class="block text-gray-700 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium">Dashboard</a>
+      <a href="services.html" class="block text-gray-700 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium">Services</a>
+      <a href="#" class="bg-blue-50 text-blue-700 block px-3 py-2 rounded-md text-base font-medium">Book</a>
+    </div>
+  </nav>
+
+  <!-- Booking Form -->
+  <div class="max-w-2xl mx-auto px-4 py-12">
+    <h1 class="text-3xl font-bold text-blue-600 mb-6">Book Your Appointment</h1>
+
+    <form @submit.prevent="submitForm" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Full Name</label>
+        <input type="text" x-model="form.name" required class="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring focus:border-blue-300">
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+        <input type="email" x-model="form.email" required class="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring focus:border-blue-300">
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Service</label>
+        <select x-model="form.service" required class="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring focus:border-blue-300">
+          <option disabled selected>Select a service</option>
+          <option>Consultation</option>
+          <option>Haircut</option>
+          <option>Massage</option>
+          <option>Color</option>
+          <option>Cut & Style</option>
+          <option>Beard Trim</option>
+          <option>Deep Condition</option>
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Date</label>
+        <input type="date" x-model="form.date" required class="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring focus:border-blue-300">
+      </div>
+
+      <div class="mb-6">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Time</label>
+        <input type="time" x-model="form.time" required class="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring focus:border-blue-300">
+      </div>
+
+      <div class="flex items-center justify-between">
+        <button type="submit" class="bg-primary-600 hover:bg-primary-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+          Book Appointment
+        </button>
+      </div>
+    </form>
+
+    <!-- Confirmation Message -->
+    <div x-show="confirmation" x-transition class="mt-4 bg-green-100 text-green-700 px-4 py-3 rounded">
+      Appointment booked successfully!
+    </div>
+  </div>
+
+  <!-- Alpine.js Component -->
+  <script>
+    function bookingForm() {
+      return {
+        form: {
+          name: '',
+          email: '',
+          service: '',
+          date: '',
+          time: ''
+        },
+        confirmation: false,
+        submitForm() {
+          console.log("Form Data:", this.form);
+          this.confirmation = true;
+
+          setTimeout(() => {
+            this.confirmation = false;
+            this.form = { name: '', email: '', service: '', date: '', time: '' };
+          }, 3000);
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>
