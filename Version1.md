@@ -46,12 +46,16 @@ I found that **specific, targeted prompts** generated much better results. Here 
 ## 4. Screenshots of Completed Front End
 **Screenshot of Landing Page**
 <img width="1247" alt="01_smallbiz_landing" src="https://github.com/user-attachments/assets/45be86c0-7e04-45c2-aa80-7ebda74e9af8" />
+
 **Screenshot of Business Dashboard**
 <img width="1247" alt="01_smallbiz_bizdashboard" src="https://github.com/user-attachments/assets/605a0976-8595-40be-ba4f-37dd3b106be4" />
+
 **Screenshot of Appointment Booking Page**
 <img width="1247" alt="01_smallbiz_appt" src="https://github.com/user-attachments/assets/4cb54014-97f1-4d9d-9536-c4e57b36406e" />
+
 **Screenshot of Business Services Page**
 <img width="1246" alt="01_smallbiz_services" src="https://github.com/user-attachments/assets/b10b01d2-4a88-42f9-a092-ee0118a388c1" />
+
 
 ## 5. What I Learned About Prompt Engineering
 Here are some key takeaways about Prompt Engineering:
